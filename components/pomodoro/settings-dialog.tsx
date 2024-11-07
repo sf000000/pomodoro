@@ -13,12 +13,10 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
 
 import { SettingsGearIcon } from "@/components/icons/settings-gear-icon";
-
-import { Separator } from "../ui/separator";
-import { ThemeSelector } from "../ui/theme-selector";
 
 interface SettingsDialogProps {
   settings: TimerSettings;
@@ -97,7 +95,6 @@ export function SettingsDialog({ settings, onSettingsChange }: SettingsDialogPro
               }
             />
           </div>
-          <ThemeSelector />
           <Separator />
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="volume" className="text-right">

@@ -1,13 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { loadSettings, saveSettings } from "@/lib/stores/settings";
+import { loadSettings, saveSettings } from "@/lib/settings";
 import { TimerSettings } from "@/lib/types";
 import { Pause, Play, RotateCcw } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 import { SettingsDialog } from "@/components/pomodoro/settings-dialog";
 
@@ -20,8 +21,8 @@ interface TimerState {
 
 export function PomodoroLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Card className="w-full max-w-md">
-      <CardContent className="space-y-8 p-6">{children}</CardContent>
+    <Card className="w-full max-w-lg">
+      <CardContent className="space-y-8 p-20">{children}</CardContent>
     </Card>
   );
 }
@@ -74,6 +75,7 @@ function PomodoroControls({
       <Button variant="ghost" size="icon" onClick={onReset}>
         <RotateCcw className="h-4 w-4" />
       </Button>
+      <ThemeToggle />
       <SettingsDialog settings={settings} onSettingsChange={onSettingsChange} />
     </div>
   );
